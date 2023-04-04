@@ -24,6 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.databayt.R
 import com.example.databayt.databayt.navigation.screen
@@ -48,52 +49,24 @@ fun Tool (navController: NavController) {
         ) {
 
             Text(
-                modifier = Modifier.padding(top = 40.dp),
+                modifier = Modifier.padding(top = 32.dp),
                 text = stringResource(id = R.string.databayt),
                 style = Heading,
 
                 )
 
-            Spacer(modifier = Modifier.width(70.dp))
+            Spacer(modifier = Modifier.width(170.dp))
 
-            ClickableText(
-                modifier = Modifier.padding(top = 45.dp),
-                text = AnnotatedString(text = stringResource(id = R.string.login)),
-                style = Body,
-                onClick = {
-                    navController.navigate(screen.Login.route)
-                })
-
-            Spacer(modifier = Modifier.width(14.dp))
-
-            Box(
-
+            Icon(
                 modifier = Modifier
-                    .padding(top = 42.dp)
-                    .height(27.dp)
-                    .width(45.dp)
-                    .background(OffWhite)
-                    .border(
-                        BorderStroke(width = 0.5.dp, color = Color.Black),
-                        shape = RoundedCornerShape(2.dp),
+                    .size(60.dp)
+                    .padding(top = 33.dp),
+                painter = painterResource(id = R.drawable.menu),
+                contentDescription = null
+
+            )
 
 
-                        )
-            ) {
-
-                ClickableText(
-                    modifier = Modifier
-                        .padding(horizontal = 6.dp)
-                        .padding(top = 3.dp),
-                    text = AnnotatedString(
-                        text = stringResource(id = R.string.join)
-                    ),
-                    style = Body,
-                    onClick = { navController.navigate(screen.Join.route) }
-
-                )
-
-            }
         }
 
         Spacer(modifier = Modifier.padding(top = 20.dp))
@@ -111,7 +84,7 @@ fun Tool (navController: NavController) {
         OutlinedTextField(
             modifier = Modifier
                 .fillMaxWidth(0.8f)
-                .fillMaxHeight(0.1f)
+                .fillMaxHeight(0.085f)
                 .onFocusChanged { focus ->
                     focusState = focus.isFocused
                 },
@@ -122,7 +95,8 @@ fun Tool (navController: NavController) {
                 Text(
                     text = if (focusState) "" else
                         stringResource(id = R.string.search),
-                    style = Body4
+
+                    style = Field
                 )
             },
 
@@ -142,13 +116,10 @@ fun Tool (navController: NavController) {
 
 
             colors = TextFieldDefaults.outlinedTextFieldColors(
-                focusedBorderColor = colorResource(id = R.color.offgrey),
+                focusedBorderColor = Color.Black,
                 unfocusedBorderColor = colorResource(id = R.color.offgrey),
-                unfocusedLabelColor = Color.Red,
-                cursorColor = colorResource(id = R.color.offgrey),
-
+                cursorColor = Color.Black,
                 trailingIconColor = colorResource(id = R.color.offgrey),
-
 
                 ),
             keyboardOptions = KeyboardOptions.Default.copy(
@@ -162,7 +133,7 @@ fun Tool (navController: NavController) {
             )
         )
 
-        Spacer(modifier = Modifier.padding(top = 20.dp))
+        Spacer(modifier = Modifier.padding(top = 15.dp))
 
         Row(
 
@@ -177,27 +148,43 @@ fun Tool (navController: NavController) {
             ClickableText(
 
                 text = AnnotatedString(text = stringResource(id = R.string.blog)),
-                style = Body,
+                style = Headb,
                 onClick = {
                     navController.navigate(screen.Home.route)
                 })
 
             Spacer(modifier = Modifier.width(30.dp))
 
-            ClickableText(
+            Column() {
 
-                text = AnnotatedString(text = stringResource(id = R.string.tool)),
-                style = Body,
-                onClick = {
-                    navController.navigate(screen.Tool.route)
-                })
+                ClickableText(
+
+                    text = AnnotatedString(text = stringResource(id = R.string.tool)),
+                    style = Heada,
+                    onClick = {
+                        navController.navigate(screen.Tool.route)
+                    })
+
+
+                Spacer(modifier = Modifier.padding(top = 2.5.dp))
+
+                Divider(
+                    modifier = Modifier
+                        .fillMaxWidth(0.13f)
+                        .padding(horizontal = 3.dp),
+                    color = Color.Black, thickness = 1.5.dp,
+
+                    )
+
+            }
+
 
             Spacer(modifier = Modifier.width(25.dp))
 
             ClickableText(
 
                 text = AnnotatedString(text = stringResource(id = R.string.club)),
-                style = Body,
+                style = Headb,
                 onClick = {
                     navController.navigate(screen.Club.route)
                 })
@@ -207,114 +194,122 @@ fun Tool (navController: NavController) {
             ClickableText(
 
                 text = AnnotatedString(text = stringResource(id = R.string.inspire)),
-                style = Body,
+                style = Headb,
                 onClick = {
                     navController.navigate(screen.Inspire.route)
                 })
 
         }
 
-        Spacer(modifier = Modifier.padding(top = 15.dp))
+        Spacer(modifier = Modifier.padding(top = 25.dp))
 
 
 
-        Column( modifier = Modifier
-            .verticalScroll(rememberScrollState())
-            .padding(horizontal = 42.dp)
+        Column(
+            modifier = Modifier
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = 42.dp)
         ) {
 
-            Text(text = stringResource(id = R.string.abouttool), style = Tool)
+            Text(
+                text = stringResource(id = R.string.abouttool),
+                fontSize = 20.sp,
+                style = Head
+            )
 
 
             Spacer(modifier = Modifier.padding(top = 25.dp))
 
             Row()
             {
-                
-                
-
 
                 Box(
                     modifier = Modifier
                         .height(50.dp)
                         .width(80.dp)
                         .background(color = OffYellow, shape = RoundedCornerShape(4.dp))
-
                 )
 
                 {
                     ClickableText(
                         modifier = Modifier
-                            .padding(horizontal = 13.dp)
+                            .padding(horizontal = 17.dp)
                             .padding(top = 12.dp),
                         text = AnnotatedString(
                             text = stringResource(id = R.string.map)
                         ),
                         style = Tool,
-                        onClick = { navController.navigate(screen.Seek.route) }
+                        onClick = { navController.navigate(screen.Map.route) }
                     )
-
-
                 }
 
                 Spacer(modifier = Modifier.width(20.dp))
 
-                Text(text = stringResource(id = R.string.maphead), style = Tool)
+                Text(
+                    modifier = Modifier.padding(top = 2.2.dp),
+                    text = stringResource(id = R.string.maphead),
+                    style = Head
+                )
 
 
             }
-            Spacer(modifier = Modifier.padding(top = 17.dp))
+            Spacer(modifier = Modifier.padding(top = 12.dp))
 
             Text(
-
-                text = stringResource(id = R.string.mapbody), style = Body4
+                text = stringResource(id = R.string.mapbody),
+                style = Body4
             )
 
-            Spacer(modifier = Modifier.padding(top = 24.dp))
+            Spacer(modifier = Modifier.padding(top = 20.dp))
 
             Divider(
-                modifier = Modifier.fillMaxWidth(0.97f),
-                color = Color.Black, thickness = 0.2.dp
+                modifier = Modifier.fillMaxWidth(1f),
+                color = Color.Black, thickness = 0.6.dp
             )
 
-            Spacer(modifier = Modifier.padding(top = 24.dp))
+            Spacer(modifier = Modifier.padding(top = 25.dp))
 
-            Row(
-
-
-
-            ) {
-
+            Row()
+            {
 
                 Box(
                     modifier = Modifier
                         .height(50.dp)
                         .width(80.dp)
-                        .background(color = OffYellow, shape = RoundedCornerShape(4.dp))
-
+                        .background(
+                            color = OffYellow,
+                            shape = RoundedCornerShape(4.dp)
+                        )
                 )
 
                 {
+
                     ClickableText(
                         modifier = Modifier
                             .padding(horizontal = 13.dp)
-                            .padding(top = 12.dp),
+                            .padding(top = 13.dp),
                         text = AnnotatedString(
-                            text = stringResource(id = R.string.flow)
+                            text = stringResource(id = R.string.flow),
                         ),
-                        style = Tool,
-                        onClick = { navController.navigate(screen.Seek.route) }
+                        style = Tool2,
+                        onClick = { navController.navigate(screen.Flow.route) }
                     )
-
 
                 }
 
                 Spacer(modifier = Modifier.width(20.dp))
 
-                Text(text = stringResource(id = R.string.flowhead), style = Tool)
+                Column() {
+                    Text(
+                        text = stringResource(id = R.string.flowhead),
+                        style = Head
+                    )
+
+                }
 
 
             }
+
             Spacer(modifier = Modifier.padding(top = 17.dp))
 
             Text(
@@ -322,40 +317,35 @@ fun Tool (navController: NavController) {
                 text = stringResource(id = R.string.flowbody), style = Body4
             )
 
-            Spacer(modifier = Modifier.padding(top = 24.dp))
+            Spacer(modifier = Modifier.padding(top = 20.dp))
 
             Divider(
-                modifier = Modifier.fillMaxWidth(0.9f),
-                color = Color.Black, thickness = 0.2.dp
+                modifier = Modifier.fillMaxWidth(1f),
+                color = Color.Black, thickness = 0.6.dp
             )
 
-            Spacer(modifier = Modifier.padding(top = 24.dp))
+            Spacer(modifier = Modifier.padding(top = 25.dp))
 
-            Row(
-
-
-
-            ) {
-
+            Row()
+            {
 
                 Box(
                     modifier = Modifier
                         .height(50.dp)
                         .width(80.dp)
                         .background(color = OffYellow, shape = RoundedCornerShape(4.dp))
-
                 )
 
                 {
                     ClickableText(
                         modifier = Modifier
-                            .padding(horizontal = 13.dp)
+                            .padding(horizontal = 22.dp)
                             .padding(top = 12.dp),
                         text = AnnotatedString(
                             text = stringResource(id = R.string.fix)
                         ),
                         style = Tool,
-                        onClick = { navController.navigate(screen.Seek.route) }
+                        onClick = { navController.navigate(screen.Fix.route) }
                     )
 
 
@@ -363,7 +353,10 @@ fun Tool (navController: NavController) {
 
                 Spacer(modifier = Modifier.width(20.dp))
 
-                Text(text = stringResource(id = R.string.fixhead), style = Tool)
+                Text(
+                    text = stringResource(id = R.string.fixhead),
+                    style = Head
+                )
 
 
             }
@@ -371,21 +364,21 @@ fun Tool (navController: NavController) {
 
             Text(
 
-                text = stringResource(id = R.string.fixbody), style = Body4
+                text = stringResource(id = R.string.fixbody),
+                style = Body4
             )
 
-            Spacer(modifier = Modifier.padding(top = 24.dp))
+            Spacer(modifier = Modifier.padding(top = 20.dp))
 
             Divider(
-                modifier = Modifier.fillMaxWidth(0.97f),
-                color = Color.Black, thickness = 0.2.dp
+                modifier = Modifier.fillMaxWidth(1f),
+                color = Color.Black, thickness = 0.6.dp
             )
 
-            Spacer(modifier = Modifier.padding(top = 24.dp))
+            Spacer(modifier = Modifier.padding(top = 25.dp))
+
 
             Row(
-
-
 
             ) {
 
@@ -401,7 +394,7 @@ fun Tool (navController: NavController) {
                 {
                     ClickableText(
                         modifier = Modifier
-                            .padding(horizontal = 13.dp)
+                            .padding(horizontal = 19.dp)
                             .padding(top = 12.dp),
                         text = AnnotatedString(
                             text = stringResource(id = R.string.zap)
@@ -415,7 +408,10 @@ fun Tool (navController: NavController) {
 
                 Spacer(modifier = Modifier.width(20.dp))
 
-                Text(text = stringResource(id = R.string.zaphead), style = Tool)
+                Text(
+                    text = stringResource(id = R.string.zaphead),
+                    style = Head
+                )
 
 
             }
@@ -426,37 +422,35 @@ fun Tool (navController: NavController) {
                 text = stringResource(id = R.string.zapbody), style = Body4
             )
 
-            Spacer(modifier = Modifier.padding(top = 24.dp))
+            Spacer(modifier = Modifier.padding(top = 20.dp))
 
             Divider(
-                modifier = Modifier.fillMaxWidth(0.9f),
-                color = Color.Black, thickness = 0.2.dp
+                modifier = Modifier.fillMaxWidth(1f),
+                color = Color.Black, thickness = 0.6.dp
             )
 
-            Spacer(modifier = Modifier.padding(top = 24.dp))
+            Spacer(modifier = Modifier.padding(top = 25.dp))
 
-            Row(
-
-            ) {
+            Row()
+            {
 
                 Box(
                     modifier = Modifier
                         .height(50.dp)
                         .width(80.dp)
                         .background(color = OffYellow, shape = RoundedCornerShape(4.dp))
-
                 )
 
                 {
                     ClickableText(
                         modifier = Modifier
-                            .padding(horizontal = 13.dp)
+                            .padding(horizontal = 16.dp)
                             .padding(top = 12.dp),
                         text = AnnotatedString(
-                            text = stringResource(id = R.string.fix)
+                            text = stringResource(id = R.string.seek)
                         ),
-                        style = Tool,
-                        onClick = { navController.navigate(screen.Kohler.route) }
+                        style = Tool2,
+                        onClick = { navController.navigate(screen.Seek.route) }
                     )
 
 
@@ -464,98 +458,232 @@ fun Tool (navController: NavController) {
 
                 Spacer(modifier = Modifier.width(20.dp))
 
-                Text(text = stringResource(id = R.string.fixhead), style = Tool)
-
+                Text(
+                    text = stringResource(id = R.string.seekhead),
+                    style = Head
+                )
 
             }
+
+
             Spacer(modifier = Modifier.padding(top = 17.dp))
 
             Text(
 
-                text = stringResource(id = R.string.fixbody), style = Body4
+                text = stringResource(id = R.string.seekbody), style = Body4
             )
 
+            Spacer(modifier = Modifier.padding(top = 20.dp))
 
-            Spacer(modifier = Modifier.padding(top = 24.dp))
-
-            Box(
-                modifier = Modifier
-                    .height(50.dp)
-                    .width(80.dp)
-                    .background(color = OffYellow, shape = RoundedCornerShape(4.dp))
-
+            Divider(
+                modifier = Modifier.fillMaxWidth(1f),
+                color = Color.Black, thickness = 0.6.dp
             )
 
+            Spacer(modifier = Modifier.padding(top = 25.dp))
+
+
+
+            Row()
             {
-                ClickableText(
+
+                Box(
                     modifier = Modifier
-                        .padding(horizontal = 13.dp)
-                        .padding(top = 12.dp),
-                    text = AnnotatedString(
-                        text = stringResource(id = R.string.por)
-                    ),
-                    style = Tool,
-                    onClick = { navController.navigate(screen.Porfile.route) }
+                        .height(50.dp)
+                        .width(80.dp)
+                        .background(color = OffYellow, shape = RoundedCornerShape(4.dp))
                 )
 
-
-            }
-
-            Spacer(modifier = Modifier.padding(top = 24.dp))
-
-            Box(
-                modifier = Modifier
-                    .height(50.dp)
-                    .width(80.dp)
-                    .background(color = OffYellow, shape = RoundedCornerShape(4.dp))
-
-            )
-
-            {
-                ClickableText(
-                    modifier = Modifier
-                        .padding(horizontal = 13.dp)
-                        .padding(top = 12.dp),
-                    text = AnnotatedString(
-                        text = stringResource(id = R.string.real)
-                    ),
-                    style = Tool,
-                    onClick = { navController.navigate(screen.Real.route) }
-                )
+                {
+                    ClickableText(
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp)
+                            .padding(top = 12.dp),
+                        text = AnnotatedString(
+                            text = stringResource(id = R.string.sign)
+                        ),
+                        style = Tool2,
+                        onClick = { navController.navigate(screen.Seek.route) }
+                    )
 
 
-            }
+                }
 
-            Spacer(modifier = Modifier.padding(top = 24.dp))
+                Spacer(modifier = Modifier.width(20.dp))
 
-            Box(
-                modifier = Modifier
-                    .height(50.dp)
-                    .width(80.dp)
-                    .background(color = OffYellow, shape = RoundedCornerShape(4.dp))
-
-            )
-
-            {
-                ClickableText(
-                    modifier = Modifier
-                        .padding(horizontal = 13.dp)
-                        .padding(top = 12.dp),
-                    text = AnnotatedString(
-                        text = stringResource(id = R.string.real)
-                    ),
-                    style = Tool,
-                    onClick = { navController.navigate(screen.Real.route) }
+                Text(
+                    text = stringResource(id = R.string.signhead),
+                    style = Head
                 )
 
             }
 
-        }
+
+            Spacer(modifier = Modifier.padding(top = 17.dp))
+
+            Text(
+
+                text = stringResource(id = R.string.singbody), style = Body4
+            )
+
+            Spacer(modifier = Modifier.padding(top = 20.dp))
+
+            Divider(
+                modifier = Modifier.fillMaxWidth(1f),
+                color = Color.Black, thickness = 0.6.dp
+            )
+
+            Spacer(modifier = Modifier.padding(top = 25.dp))
+
+            Row()
+            {
+
+                Box(
+                    modifier = Modifier
+                        .height(50.dp)
+                        .width(80.dp)
+                        .background(color = OffYellow, shape = RoundedCornerShape(4.dp))
+                )
+
+                {
+                    ClickableText(
+                        modifier = Modifier
+                            .padding(horizontal = 15.dp)
+                            .padding(top = 12.dp),
+                        text = AnnotatedString(
+                            text = stringResource(id = R.string.deal)
+                        ),
+                        style = Tool2,
+                        onClick = { navController.navigate(screen.Seek.route) }
+                    )
 
 
+                }
+
+                Spacer(modifier = Modifier.width(20.dp))
+
+                Text(
+                    text = stringResource(id = R.string.dealhead),
+                    style = Head
+                )
+
+            }
+
+
+            Spacer(modifier = Modifier.padding(top = 17.dp))
+
+            Text(
+
+                text = stringResource(id = R.string.dealbody), style = Body4
+            )
+
+            Spacer(modifier = Modifier.padding(top = 20.dp))
+
+            Divider(
+                modifier = Modifier.fillMaxWidth(1f),
+                color = Color.Black, thickness = 0.6.dp
+            )
+
+            Spacer(modifier = Modifier.padding(top = 25.dp))
+
+            Row()
+            {
+
+                Box(
+                    modifier = Modifier
+                        .height(50.dp)
+                        .width(80.dp)
+                        .background(color = OffYellow, shape = RoundedCornerShape(4.dp))
+                )
+
+                {
+                    ClickableText(
+                        modifier = Modifier
+                            .padding(horizontal = 14.2.dp)
+                            .padding(top = 12.dp),
+                        text = AnnotatedString(
+                            text = stringResource(id = R.string.vote)
+                        ),
+                        style = Tool2,
+                        onClick = { navController.navigate(screen.Seek.route) }
+                    )
+
+
+                }
+
+                Spacer(modifier = Modifier.width(20.dp))
+
+                Text(
+                    text = stringResource(id = R.string.votehead),
+                    style = Head
+                )
+
+            }
+
+
+            Spacer(modifier = Modifier.padding(top = 17.dp))
+
+            Text(
+
+                text = stringResource(id = R.string.votebody), style = Body4
+            )
+
+            Spacer(modifier = Modifier.padding(top = 20.dp))
+
+            Divider(
+                modifier = Modifier.fillMaxWidth(1f),
+                color = Color.Black, thickness = 0.6.dp
+            )
+
+            Spacer(modifier = Modifier.padding(top = 25.dp))
+
+            Row()
+            {
+
+                Box(
+                    modifier = Modifier
+                        .height(50.dp)
+                        .width(80.dp)
+                        .background(color = OffYellow, shape = RoundedCornerShape(4.dp))
+                )
+
+                {
+                    ClickableText(
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp)
+                            .padding(top = 12.dp),
+                        text = AnnotatedString(
+                            text = stringResource(id = R.string.real)
+                        ),
+                        style = Tool2,
+                        onClick = { navController.navigate(screen.Real.route) }
+                    )
+
+
+                }
+
+                Spacer(modifier = Modifier.width(20.dp))
+
+                Text(
+                    text = stringResource(id = R.string.realhead),
+                    style = Head
+                )
+
+            }
+
+
+            Spacer(modifier = Modifier.padding(top = 17.dp))
+
+            Text(
+
+                text = stringResource(id = R.string.realbody), style = Body4
+            )
+
+            Spacer(modifier = Modifier.padding(top = 40.dp))
 
         }
     }
+}
 
 
 

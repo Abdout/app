@@ -37,9 +37,9 @@ fun Forget (navController: NavController) {
                 text = stringResource(id = R.string.databayt)),
             onClick = {navController.navigate(screen.Home.route)},
             modifier = Modifier
-                .padding(top = 40.dp)
                 .fillMaxWidth()
-                .padding(horizontal = 42.dp),
+                .padding(horizontal = 38.dp)
+                .padding(top = 32.dp),
             style = Heading,
 
             )
@@ -51,7 +51,7 @@ fun Forget (navController: NavController) {
                 .fillMaxWidth()
                 .padding(horizontal = 42.dp),
             text = stringResource(id = R.string.forgetpassword),
-        style = Heading)
+        style = RealDetial)
 
         Spacer(modifier = Modifier.padding(top = 10.dp))
 
@@ -75,7 +75,7 @@ fun Forget (navController: NavController) {
         )
         
 
-        Spacer(modifier = Modifier.padding(top = 20.dp))
+        Spacer(modifier = Modifier.padding(top = 30.dp))
 
 
         Button(

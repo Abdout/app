@@ -1,6 +1,7 @@
 package com.example.databayt.databayt
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
@@ -15,6 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.databayt.R
+import com.example.databayt.databayt.navigation.screen
 import com.example.databayt.ui.theme.Body4
 import com.example.databayt.ui.theme.OffWhite
 import com.example.databayt.ui.theme.OffYellow
@@ -93,7 +95,9 @@ fun Seek (navController: NavController) {
         )
         {
             Icon(
-                modifier = Modifier.size(100.dp),
+                modifier = Modifier
+                    .size(100.dp)
+                    .clickable { navController.navigate(screen.Job.route) },
                 painter = painterResource(id = R.drawable.job),
                 contentDescription = null
             )
@@ -101,7 +105,9 @@ fun Seek (navController: NavController) {
             Spacer(modifier = Modifier.width(65.dp))
 
             Icon(
-                modifier = Modifier.size(110.dp),
+                modifier = Modifier
+                    .size(110.dp)
+                    .clickable { navController.navigate(screen.Scholar.route) },
                 painter = painterResource(id = R.drawable.scholarship),
                 contentDescription = null
             )
@@ -136,7 +142,9 @@ fun Seek (navController: NavController) {
         )
         {
             Icon(
-                modifier = Modifier.size(100.dp),
+                modifier = Modifier
+                    .size(100.dp)
+                    .clickable { navController.navigate(screen.Degree.route) },
                 painter = painterResource(id = R.drawable.degree),
                 contentDescription = null
             )
@@ -144,7 +152,9 @@ fun Seek (navController: NavController) {
             Spacer(modifier = Modifier.width(70.dp))
 
             Icon(
-                modifier = Modifier.size(100.dp),
+                modifier = Modifier
+                    .size(100.dp)
+                    .clickable { navController.navigate(screen.Visa.route) },
                 painter = painterResource(id = R.drawable.visa),
                 contentDescription = null
             )

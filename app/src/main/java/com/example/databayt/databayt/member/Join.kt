@@ -5,14 +5,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.ClickableText
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
@@ -38,17 +36,16 @@ fun Join (navController: NavController) {
     ) {
         ClickableText(
             text = AnnotatedString(
-                text = stringResource(id = R.string.databayt)
-            ),
+                text = stringResource(id = R.string.databayt)),
             onClick = { navController.navigate(screen.Home.route) },
             modifier = Modifier
-                .padding(top = 40.dp)
                 .fillMaxWidth()
-                .padding(horizontal = 42.dp),
+                .padding(horizontal = 38.dp)
+                .padding(top = 32.dp),
             style = Heading,
 
             )
-        Spacer(modifier = Modifier.padding(top = 120.dp))
+        Spacer(modifier = Modifier.padding(top = 127.dp))
 
         OutlinedTextField(
             modifier = Modifier
@@ -139,7 +136,7 @@ fun Join (navController: NavController) {
             Spacer(modifier = Modifier.width(7.dp))
             ClickableText(
                 text = AnnotatedString(text = stringResource(id = R.string.login)),
-                style = Body2,
+                style = Blue,
                 onClick = { navController.navigate(screen.Login.route)},
             )
         }

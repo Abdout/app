@@ -37,13 +37,14 @@ fun Login (navController: NavController) {
                 text = stringResource(id = R.string.databayt)),
             onClick = {navController.navigate(screen.Home.route)},
             modifier = Modifier
-                .padding(top = 40.dp)
                 .fillMaxWidth()
-                .padding(horizontal = 42.dp),
+                .padding(horizontal = 38.dp)
+                .padding(top = 32.dp),
             style = Heading,
 
             )
-        Spacer(modifier = Modifier.padding(top = 200.dp))
+        Spacer(modifier = Modifier.padding(top = 203.dp))
+
 
         OutlinedTextField(
             modifier = Modifier
@@ -75,7 +76,7 @@ fun Login (navController: NavController) {
                 .padding(horizontal = 42.dp),
 
             text = AnnotatedString(text = stringResource(id = R.string.forget)),
-            style = Body2,
+            style = Blue,
             onClick = {
 
                     navController.navigate(screen.Forget.route)
